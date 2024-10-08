@@ -1,39 +1,27 @@
 #include <stdio.h>
-#include <fcntl.h>   // for open(), O_RDONLY, O_WRONLY
-#include <unistd.h>  // for read(), write(), close()
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 int main() {
-    // Open the input file in read mode
-    int inputFile = open("input.txt", O_RDONLY);
-    if (inputFile < 0) {
-        // If there's an error opening the file, print this message
-        printf("Error: Can't open input file\n");
+    pid_t pid = fork(); // Create a new process
+
+    if (pid < 0) {
+        perror("Fork failed");
         return 1;
+    } else if (pid == 0) {
+        // Child process
+        printf("Child process: PID = %d\n", getpid());
+        sleep(2); 
+        printf("Child process completed.\n");
+        exit(0); 
+    } else {
+        // Parent process
+        printf("Parent process: PID = %d, waiting for child...\n", getpid());
+        wait(NULL); // Wait for the child process to complete
+        printf("Child process has finished. Parent process exiting.\n");
     }
 
-    // Open the output file in write mode (or create it if not there)
-    int outputFile = open("output.txt", O_WRONLY | O_CREAT, 0644);
-    if (outputFile < 0) {
-        // If there's an error opening/creating the output file
-        printf("Error: Can't open or create output file\n");
-        close(inputFile);  // Close the input file since it was opened successfully
-        return 1;
-    }
-
-    // Buffer to store the file contents
-    char buffer[100];
-    int bytesRead;
-
-    // Read from the input file and write to the output file
-    while ((bytesRead = read(inputFile, buffer, sizeof(buffer))) > 0) {
-        write(outputFile, buffer, bytesRead);
-    }
-
-    // Close both files after the operation is done
-    close(inputFile);
-    close(outputFile);
-
-    // Let the user know the copying is done
-    printf("File copy completed successfully!\n");
     return 0;
 }

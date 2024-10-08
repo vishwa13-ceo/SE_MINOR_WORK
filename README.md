@@ -1,10 +1,10 @@
-Task A1: Call by Value in C
+<h2>Task A1: Call by Value in C</h2>
  
 Task A1 demonstrates the concept of Call by Value in the C programming language.
 In this task, we came to know how function parameters are passed by value, meaning that a copy of the variable is passed to the function. 
 Changes made to the parameter inside the function do not affect the original variable.
 
-Task A2 : Study on Usability and make report on 2 UIs about Usability
+<h2>Task A2 : Study on Usability and make report on 2 UIs about Usability</h2>
 
 In this task, we dive into the usability of two popular software products:
 Microsoft Word and Google Docs. 
@@ -31,7 +31,7 @@ We can use Google Docs on pretty much any device with internet access. Whether w
 
 
 
-Task A3: Features of Programming Languages
+<h2>Task A3: Features of Programming Languages</h2>
 
 Features of Robust Code
 1.Error Handling:
