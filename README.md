@@ -64,4 +64,34 @@ The overall design is simple. By keeping it straightforward, we reduce the chanc
 
 
 
+<h2>Task 4 : Assertions and POSIX Standards </h2>
+
+In this project, I'm exploring how assertions work in C programming and how to write code that can run on different Unix-like operating systems using POSIX standards. Assertions are a useful tool for checking if the conditions in our code are correct, while POSIX helps ensure that our code is portable.
+
+Assertions in C
+
+What are Assertions?
+Assertions are statements that check whether a condition is true while the program is running. If an assertion fails, the program stops, which helps in catching mistakes early.
+
+Why are Assertions Important?
+Debugging:They help us find logical errors by confirming that certain conditions hold true during execution.
+Reliability: By checking important assumptions, assertions make our code more dependable.
+Documentation:They act as a form of documentation that clarifies what we expect from our code.
+
+POSIX Standards
+
+What is POSIX?
+ POSIX (Portable Operating System Interface) is a set of standards created by the IEEE. It helps make sure that software can work across different operating systems by defining a common application programming interface (API).
+
+Why is POSIX Important?
+Portability: If we write code that follows POSIX standards, it can run on any system that supports POSIX without needing changes.
+Consistency: It offers a stable environment for developing software, which helps minimize issues related to different systems.
+
+
+
+
+
+
+
+
 
